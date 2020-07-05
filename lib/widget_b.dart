@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import './provider.dart';
+import 'package:provider/provider.dart';
+import 'model.dart';
 
 class WidgetB extends StatelessWidget {
   WidgetB({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final bloc = Provider.of(context).bloc;
-    return StreamBuilder<Color>(
-        stream: bloc.onSecondaryColor,
-        builder: (BuildContext context, AsyncSnapshot<Color> snapshot) {
-          return Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-                color: !snapshot.hasData ? Colors.black : snapshot.data,
-                shape: BoxShape.circle),
-          );
-        });
+    return Consumer<Model>(
+      builder: (context, data, child) {
+        return Container(
+          width: 100,
+          height: 100,
+          decoration:
+              BoxDecoration(color: data.secondaryColor, shape: BoxShape.circle),
+        );
+      },
+      child: null, // there is no big child.
+    );
   }
 }

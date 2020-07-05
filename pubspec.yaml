@@ -22,6 +22,7 @@ environment:
 
 dependencies:
   rxdart: ^0.24.1
+  provider: ^3.0.0
   flutter:
     sdk: flutter
 

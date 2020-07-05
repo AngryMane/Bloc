@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './provider.dart';
+import 'package:provider/provider.dart';
+import 'model.dart';
 import './root.dart';
 
 void main() {
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Provider(child: RootWidget()),
+      home: ChangeNotifierProvider(
+          create: (context) => Model(), child: RootWidget()),
     );
   }
 }
