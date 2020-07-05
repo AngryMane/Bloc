@@ -8,7 +8,7 @@ class Provider extends InheritedWidget {
   Bloc get bloc => _bloc;
 
   @override
-  bool updateShouldNotify(_) => true;
+  bool updateShouldNotify(_) => false;
 
   static Provider of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<Provider>();
